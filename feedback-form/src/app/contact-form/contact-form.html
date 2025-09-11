@@ -1,33 +1,36 @@
 <div class="form-container">
-    <h2>Форма обратной связи</h2>
+    <h2>Напишите нам</h2>
     <form>
         <div class="form-group">
-            <label for="name">Ваше имя:</label>
+            <label for="name" class="form-label">Ваше имя:</label>
             <input 
                 type="text" 
                 id="name" 
                 name="name" 
-                placeholder="Введите имя">
+                placeholder="Введите имя"
+                class="form-input">
         </div>
-        <div class="form-group">
-            <label for="email">Ваш Email:</label>
+        <div class="form-group" >
+            <label for="email" class="form-label">Ваш Email:</label>
             <input 
                 type="email" 
                 id="email" 
                 name="email" 
-                placeholder="Введите email">
+                placeholder="Введите email"
+                class="form-input">
         </div>
         <div class="form-group">
-            <label for="phone">Ваш телефон:</label>
+            <label for="phone" class="form-label">Ваш телефон:</label>
             <input 
                 type="tel" 
                 id="phone" 
                 name="phone" 
-                placeholder="Введите телефон">
+                placeholder="Введите телефон"
+                class="form-input">
         </div>
         <div class="form-group">
-            <label for="topic">Тема:</label>
-            <select id="topic" name="topic">
+            <label for="topic" class="form-label">Тема:</label>
+            <select id="topic" name="topic" class="form-select">
                 <option value="">Выберите тему</option>
                 <option value="1">Техподдержка</option>
                 <option value="2">Продажи</option>
@@ -35,22 +38,24 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="message">Ваше сообщение:</label>
+            <label for="message" class="form-label">Ваше сообщение:</label>
             <textarea 
                 id="message" 
                 name="message" 
                 rows="5" 
-                placeholder="Введите сообщение">
+                placeholder="Введите сообщение"
+                class="form-textarea">
             </textarea>
         </div>
         <div class="form-group">
-            <label for="captcha">Цифры:</label>
+            <label for="captcha" class="form-label">Цифры:</label>
             <div class="captcha-box">
                 <input 
                     type="text" 
                     id="captcha" 
                     name="captcha" 
-                    placeholder="Код с картинки">
+                    placeholder="Код с картинки"
+                    class="form-input">
                 <img 
                     src="https://intsystem.org/wp-content/uploads/2013/08/kcaptcha_1_1.png"
                     alt="CAPTCHA" 
@@ -58,7 +63,8 @@
 
             </div>
         </div>
-        <button type="submit">Отправить письмо!</button>
-    
+        <div class="form-button">
+            <button type="submit">Отправить письмо!</button>
+        </div>
     </form>
 </div>
