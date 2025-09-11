@@ -1,6 +1,6 @@
 <div class="form-container">
     <h2>Напишите нам</h2>
-    <form>
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name" class="form-label">Ваше имя:</label>
             <input 
@@ -8,7 +8,8 @@
                 id="name" 
                 name="name" 
                 placeholder="Введите имя"
-                class="form-input">
+                class="form-input"
+                formControlName="name">
         </div>
         <div class="form-group" >
             <label for="email" class="form-label">Ваш Email:</label>
@@ -17,7 +18,8 @@
                 id="email" 
                 name="email" 
                 placeholder="Введите email"
-                class="form-input">
+                class="form-input"
+                formControlName="email">
         </div>
         <div class="form-group">
             <label for="phone" class="form-label">Ваш телефон:</label>
@@ -26,15 +28,20 @@
                 id="phone" 
                 name="phone" 
                 placeholder="Введите телефон"
-                class="form-input">
+                class="form-input"
+                formControlName="phone">
         </div>
         <div class="form-group">
             <label for="topic" class="form-label">Тема:</label>
-            <select id="topic" name="topic" class="form-select">
-                <option value="">Выберите тему</option>
-                <option value="1">Техподдержка</option>
-                <option value="2">Продажи</option>
-                <option value="3">Другое</option>
+            <select 
+                id="topic" 
+                name="topic" 
+                class="form-select"
+                formControlName="topic">
+                    <option value="">Выберите тему</option>
+                    <option value="1">Техподдержка</option>
+                    <option value="2">Продажи</option>
+                    <option value="3">Другое</option>
             </select>
         </div>
         <div class="form-group">
@@ -44,7 +51,8 @@
                 name="message" 
                 rows="5" 
                 placeholder="Введите сообщение"
-                class="form-textarea">
+                class="form-textarea"
+                formControlName="message">
             </textarea>
         </div>
         <div class="form-group">
@@ -55,7 +63,8 @@
                     id="captcha" 
                     name="captcha" 
                     placeholder="Код с картинки"
-                    class="form-input">
+                    class="form-input"
+                    formControlName="captcha">
                 <img 
                     src="https://intsystem.org/wp-content/uploads/2013/08/kcaptcha_1_1.png"
                     alt="CAPTCHA" 
