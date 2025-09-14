@@ -27,7 +27,7 @@ export class ContactForm {
   onSubmit() {
   if (this.feedbackForm.valid) {
     const formData = this.feedbackForm.value;
-    this.http.post('https://localhost:5001/api/feedback', formData)
+    this.http.post('http://localhost:5030/api/feedback', formData)
       .subscribe({
         next: (response) => {
           alert('Форма успешно отправлена!');

@@ -126,3 +126,5 @@ C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\obj\Debug\net9.0\refi
 C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\obj\Debug\net9.0\Feedback.Api.pdb
 C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\obj\Debug\net9.0\Feedback.Api.genruntimeconfig.cache
 C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\obj\Debug\net9.0\ref\Feedback.Api.dll
+C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\bin\Debug\net9.0\Npgsql.dll
+C:\Users\1601m\testTask\feedback-form\backend\Feedback.Api\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
