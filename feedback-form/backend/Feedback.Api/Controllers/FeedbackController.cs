@@ -22,7 +22,7 @@ namespace Feedback.Api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (dto.Captcha != "ABCD")
+            if (dto.Captcha != "0096")
                 return BadRequest("Неверная CAPTCHA");
 
             var existingContact = await _context.Contacts
