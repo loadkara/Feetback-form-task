@@ -18,7 +18,6 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular", policy =>
     {
         policy.WithOrigins("https://feedback-k.netlify.app")
-        //policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -29,14 +28,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// Логируем все входящие запросы
-app.Use((ctx, next) =>
-{
-    Console.WriteLine($"➡️  Incoming: {ctx.Request.Method} {ctx.Request.Path}");
-    return next();
-});
-
-//app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 app.UseAuthorization();
 app.MapControllers();
@@ -44,17 +35,8 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    try
-    {
-        context.Database.Migrate();
-        Console.WriteLine("✅ Миграции успешно применены");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"❌ Ошибка при применении миграций: {ex.Message}");
-    }
-}
+    context.Database.Migrate();
 
-app.MapGet("/health", () => Results.Ok("OK"));
+}
 
 app.Run();
