@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://feedback-k.netlify.app ")
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
