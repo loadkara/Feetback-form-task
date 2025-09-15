@@ -22,7 +22,7 @@ var app = builder.Build();
 
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 app.UseAuthorization();
 app.MapControllers();
