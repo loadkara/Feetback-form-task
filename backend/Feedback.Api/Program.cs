@@ -21,24 +21,24 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+// Логируем все входящие запросы
+app.Use((ctx, next) =>
 {
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    try
-    {
-        context.Database.Migrate(); // Применяет все миграции
-        Console.WriteLine("✅ Миграции успешно применены");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"❌ Ошибка при применении миграций: {ex.Message}");
-    }
-}
+    Console.WriteLine($"➡️  Incoming: {ctx.Request.Method} {ctx.Request.Path}");
+    return next();
+});
 
 //app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 app.UseAuthorization();
 app.MapControllers();
+
+// Логируем все входящие запросы
+app.Use((ctx, next) =>
+{
+    Console.WriteLine($"➡️  Incoming: {ctx.Request.Method} {ctx.Request.Path}");
+    return next();
+});
 
 app.MapGet("/health", () => Results.Ok("OK"));
 
