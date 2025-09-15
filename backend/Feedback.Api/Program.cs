@@ -41,6 +41,20 @@ app.UseCors("AllowAngular");
 app.UseAuthorization();
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    try
+    {
+        context.Database.Migrate();
+        Console.WriteLine("✅ Миграции успешно применены");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Ошибка при применении миграций: {ex.Message}");
+    }
+}
+
 app.MapGet("/health", () => Results.Ok("OK"));
 
 app.Run();
