@@ -21,6 +21,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    try
+    {
+        context.Database.Migrate(); // Применяет все миграции
+        Console.WriteLine("✅ Миграции успешно применены");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Ошибка при применении миграций: {ex.Message}");
+    }
+}
+
 //app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
 app.UseAuthorization();
