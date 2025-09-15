@@ -16,7 +16,7 @@ namespace Feedback.Api.Controllers
             _context = context;
         }
 
-        [HttpPost("feedback")]
+        [HttpPost]
         public async Task<IActionResult> Submit([FromBody] FeedbackDto dto)
         {
             if (!ModelState.IsValid)
