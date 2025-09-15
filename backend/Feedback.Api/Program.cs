@@ -9,7 +9,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("https://feedback-k.netlify.app")
+        //policy.WithOrigins("https://feedback-k.netlify.app")
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -19,8 +20,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
-
-
 
 //app.UseHttpsRedirection();
 app.UseCors("AllowAngular");
