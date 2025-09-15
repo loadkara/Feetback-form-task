@@ -7,7 +7,6 @@ namespace Feedback.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Route("api/feedback")]
     public class FeedbackController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
