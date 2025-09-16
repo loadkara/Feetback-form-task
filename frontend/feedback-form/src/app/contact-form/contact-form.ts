@@ -49,19 +49,17 @@ export class ContactForm {
       return;
     }
 
-    const { captcha, ...payload } = dto;
-
-    this.http.post('https://feedback-api-a8xh.onrender.com/api/feedback', payload)
-      .subscribe({
-        next: (response: any) => {
-          console.log('Успешно отправлено', response);
-          this.result = response;
-          this.feedbackForm.reset();
-        },
-        error: (error) => {
-          console.error('Ошибка при отправке', error);
-          alert('Ошибка при отправке формы. Попробуйте позже.');
-        }
-      });
+    this.http.post('https://feedback-api-a8xh.onrender.com/api/feedback', dto)
+  .subscribe({
+    next: (response: any) => {
+      console.log('Успешно отправлено', response);
+      this.result = response;
+      this.feedbackForm.reset();
+    },
+    error: (error) => {
+      console.error('Ошибка при отправке', error);
+      alert('Ошибка при отправке формы. Попробуйте позже.');
+    }
+  });
   }
 }
