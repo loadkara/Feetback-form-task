@@ -78,3 +78,12 @@ button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
+
+.success-message {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #d1e7dd;
+  background-color: #f8fff9;
+  border-radius: 8px;
+  color: #0f5132;
+}

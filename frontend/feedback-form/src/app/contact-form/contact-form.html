@@ -80,11 +80,13 @@
 }
 
 @if (result) {
-  <h3>Сообщение успешно отправлено!</h3>
-  <p><strong>Имя:</strong> {{ result.contact.name }}</p>
-  <p><strong>Email:</strong> {{ result.contact.email }}</p>
-  <p><strong>Телефон:</strong> {{ result.contact.phone }}</p>
-  <p><strong>Тема:</strong> {{ getTopicName(result.topicId) }}</p>
-  <p><strong>Сообщение:</strong> {{ result.messageText }}</p>
-  <p><strong>Дата:</strong> {{ result.createdAt | date:'dd.MM.yyyy HH:mm' }}</p>
+  <div class="success-message">
+    <h3>Сообщение успешно отправлено!</h3>
+    <p><strong>Имя:</strong> {{ result.contact.name }}</p>
+    <p><strong>Email:</strong> {{ result.contact.email }}</p>
+    <p><strong>Телефон:</strong> {{ result.contact.phone }}</p>
+    <p><strong>Тема:</strong> {{ getTopicName(result.topicId) }}</p>
+    <p><strong>Сообщение:</strong> {{ result.messageText }}</p>
+    <p><strong>Дата:</strong> {{ result.createdAt | date:'dd.MM.yyyy HH:mm' }}</p>
+  </div>
 }
